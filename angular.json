@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "photo-board"
+    }
+  },
+  "defaultProject": "photo-board",
+  "cli": {
+    "analytics": false
+  }
 }
