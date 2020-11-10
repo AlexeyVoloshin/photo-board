@@ -29,6 +29,11 @@ export const photoReducer = (
             }
           ]
         };
+        case photoActionsType.delete:
+          return {
+            ...state,
+            photoList: state.photoList.splice(-1, 1)
+          };
         default:
           return state;
     }

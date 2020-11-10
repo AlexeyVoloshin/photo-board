@@ -2,6 +2,7 @@
 <div class="container">
   <app-image-form
   (onAddPhoto)=onAddPhoto($event)
+  [boardId]="boardId"
   >
 
   </app-image-form>
@@ -15,12 +16,17 @@
     [boardList]="boardList$"
     ></app-board-list>
   <!-- </span> -->
-<span *ngFor="let photo of photoList$">
+<span *ngIf="boardId; else notFoundPhoto">
   <app-photo
+  *ngFor="let photo of photoList$ | async "
   [photo]="photo"
 ></app-photo>
 </span>
-
+<ng-template
+  #notFoundPhoto
+  ><h3>Создайте боард и загрузите ваши фото</h3>
+</ng-template>
+<button (click)=onDeletePhoto()>Delete</button>
 </div>
 
 

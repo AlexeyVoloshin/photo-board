@@ -10,7 +10,9 @@ import { IBoard } from '../models/board';
 export class BoardFormComponent implements OnInit {
   name: string;
   private id = 1;
+
   @Output() onAddBorder = new EventEmitter<IBoard>()
+
   constructor() { }
 
   ngOnInit(): void {

@@ -1,10 +1,15 @@
 <div class="row">
   <span>Add image to the board</span>
-  <form action="" class="col s12">
+  <form action="#"  (ngSubmit)="addPhoto()">
     <div class="row">
       <div class="input-field col s6">
-        <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-       <button class="btn" (click)=addImage($event)>Add</button>
+        <input
+        placeholder="Placeholder"
+        type="text"
+        name="name"
+        [(ngModel)]="name"
+        >
+       <button class="btn" [disabled]="!boardId">Add</button>
       </div>
     </div>
   </form>

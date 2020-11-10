@@ -8,3 +8,12 @@ export const photoListSelector = createSelector(
   photoFeatureSelector,
   state => state.photoList
 );
+
+export const selectPhotoByBoard = createSelector(
+  photoListSelector,
+  (photo, props) => {
+    return photo.filter(
+      (item) => item.idBoard === props.boardId
+    )
+  }
+)
