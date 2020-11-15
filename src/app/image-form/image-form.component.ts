@@ -14,6 +14,7 @@ export class ImageFormComponent implements OnInit {
 
   @Input() boardId: number;
 
+
   constructor() { }
 
   ngOnInit(): void {

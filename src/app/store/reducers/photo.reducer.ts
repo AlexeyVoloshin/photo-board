@@ -30,9 +30,14 @@ export const photoReducer = (
           ]
         };
         case photoActionsType.delete:
+          const newPhotoList = [...state.photoList];
+          const lastItem = newPhotoList.length - 1;
+          if (lastItem !== undefined) {
+            newPhotoList.splice(lastItem, 1);
+          }
           return {
             ...state,
-            photoList: state.photoList.splice(-1, 1)
+            photoList: newPhotoList
           };
         default:
           return state;
