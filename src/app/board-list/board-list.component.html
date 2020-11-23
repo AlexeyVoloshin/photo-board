@@ -1,10 +1,13 @@
-<ng-select [(ngModel)]="selectedBoard" (ngModelChange)=selectChange($event)>
-  <ng-option
-    *ngFor="let board of boardList|async"
-    [value]="board.id">{{board.name}}
-  </ng-option>
-</ng-select>
-{{selectedBoard}}
+<div class="list-wrapper">
+  <ng-select [(ngModel)]="selectedBoard" (ngModelChange)=selectChange($event)>
+    <ng-option
+      *ngFor="let board of boardList|async"
+      [value]="board.id">{{board.name}}
+    </ng-option>
+  </ng-select>
+  {{selectedBoard}}
+</div>
+
 <!--Using items input-->
 <!-- <ng-select [items]="cars"
           bindLabel="name"

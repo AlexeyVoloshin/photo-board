@@ -21,14 +21,11 @@ export class ImageFormComponent implements OnInit {
   }
 
   addPhoto(): void {
-    // event.preventDefault();
-
-    console.log(this.name);
     const newPhoto: IPhoto = {
       idBoard: this.boardId,
       imgUrl: this.name
-    }
-    this.onAddPhoto.emit(newPhoto)
+    };
+    this.onAddPhoto.emit(newPhoto);
 
   }
 }

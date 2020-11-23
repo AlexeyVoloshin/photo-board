@@ -1,32 +1,50 @@
 <h1>Photo Board</h1>
 <div class="container">
+  <div class="top-panel">
+
+
   <app-image-form
   (onAddPhoto)=onAddPhoto($event)
   [boardId]="boardId"
   >
-
   </app-image-form>
-  <button class="btn">Create a new board</button>
-  <app-board-form
-  (onAddBorder)="onAddBorder($event)"
-  ></app-board-form>
+  <div class="create-board">
+
   <!-- <span *ngFor="let board of boards"> -->
-    <app-board-list
+    <app-board-list *ngIf="!toggle; else formBoard"
     (onSelectedBoard)=onSelectedBoard($event)
     [boardList]="boardList$"
     ></app-board-list>
+    <ng-template
+    #formBoard
+    >
+    <app-board-form
+
+    (onAddBorder)="onAddBorder($event)"
+    ></app-board-form>
+    </ng-template>
+
+    <button class="btn create" (click)=createBoard()>Create a new board</button>
+  </div>
+  </div>
   <!-- </span> -->
-<span *ngIf="boardId; else notFoundPhoto">
-  <app-photo
-  *ngFor="let photo of photoList$ | async "
-  [photo]="photo"
-></app-photo>
-</span>
-<ng-template
-  #notFoundPhoto
-  ><h3>Создайте боард и загрузите ваши фото</h3>
-</ng-template>
-<button (click)=onDeletePhoto()>Delete</button>
+  <div class="board">
+    <span *ngIf="boardId; else notFoundPhoto">
+      <app-photo
+      *ngFor="let photo of photoList$ | async "
+      [photo]="photo"
+    ></app-photo>
+    </span>
+    <ng-template
+      #notFoundPhoto
+      ><h3>Создайте боард и загрузите ваши фото</h3>
+    </ng-template>
+    <div class="del-save">
+      <button class="btn" (click)=onDeletePhoto()>Dismiss Changes</button>
+      <button class="btn" (click)=onSaveBoard()>Save Board</button>
+    </div>
+
+  </div>
 </div>
 
 

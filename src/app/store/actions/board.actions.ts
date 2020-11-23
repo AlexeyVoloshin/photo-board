@@ -1,7 +1,14 @@
 import { Action } from '@ngrx/store';
+import { BoardState } from '../reducers/board.reducer';
 
 export enum boardActionsType {
   create = '[BOARD] create board item',
+  load = '[BOARD] load board state'
+}
+
+export class BoardLoadStateAction implements Action {
+  readonly type = boardActionsType.load;
+  constructor(public payload: { state: BoardState}) {}
 }
 
 export class BoardCreateAction implements Action {
@@ -9,11 +16,6 @@ export class BoardCreateAction implements Action {
   constructor(public payload: { name: string }) {}
 }
 
-// export class IdBoardAddAction implements Action {
-//   readonly type = boardActionsType.addIdBoard;
-//   constructor(public payload: { idBoard: number }) {}
-// }
-
-export type BoardActions = BoardCreateAction;
+export type BoardActions = BoardCreateAction | BoardLoadStateAction;
 
 // | IdBoardAddAction;

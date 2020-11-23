@@ -21,8 +21,6 @@ export class BoardListComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    console.log('------------------------', this.boardList);
-
   }
   selectChange(event): void {
     this.onSelectedBoard.emit(this.selectedBoard)

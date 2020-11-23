@@ -18,7 +18,6 @@ export class BoardFormComponent implements OnInit {
   ngOnInit(): void {
   }
   addBoard(): void {
-    console.log(this.name);
     if (this.name) {
       const newBoard = {
         id: this.id,

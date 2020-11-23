@@ -1,0 +1,29 @@
+.top-panel{
+  display: flex;
+  justify-content: space-between;
+}
+.create-board {
+  display: flex;
+  align-items: center;
+}
+.create {
+  margin-top: 22px;
+  width: auto;
+  padding: 5px;
+  text-align: center;
+}
+.board {
+  height: 700px;
+  margin-top: 30px;
+  display: flex;
+  position: relative;
+  width: 100%;
+  border: 1px solid;
+  max-width: 1036px;
+  overflow: hidden;
+}
+.del-save {
+  position: absolute;
+  bottom: 9px;
+  right: 15px;
+}

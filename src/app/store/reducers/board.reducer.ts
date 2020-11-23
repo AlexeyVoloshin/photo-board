@@ -16,6 +16,10 @@ const initialState: BoardState = {
 export const boardReducer = (
   state: BoardState = initialState, action: BoardActions) => {
   switch (action.type) {
+    case boardActionsType.load:
+      return {
+        ...action.payload.state
+      };
     case boardActionsType.create:
       return {
         ...state,
