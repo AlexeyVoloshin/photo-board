@@ -1,5 +1,7 @@
-<h1>Photo Board</h1>
+
 <div class="container">
+  <h1>Photo Board</h1>
+  <hr align="left">
   <div class="top-panel">
 
 
@@ -9,7 +11,6 @@
   >
   </app-image-form>
   <div class="create-board">
-
   <!-- <span *ngFor="let board of boards"> -->
     <app-board-list *ngIf="!toggle; else formBoard"
     (onSelectedBoard)=onSelectedBoard($event)
@@ -19,29 +20,27 @@
     #formBoard
     >
     <app-board-form
-
     (onAddBorder)="onAddBorder($event)"
     ></app-board-form>
     </ng-template>
-
-    <button class="btn create" (click)=createBoard()>Create a new board</button>
+    <button class="btn btn-sm btn-outline-primary" (click)=createBoard()>Create a new board</button>
   </div>
   </div>
   <!-- </span> -->
   <div class="board">
-    <span *ngIf="boardId; else notFoundPhoto">
+    <div *ngIf="boardId; else notFoundPhoto">
       <app-photo
       *ngFor="let photo of photoList$ | async "
       [photo]="photo"
     ></app-photo>
-    </span>
+    </div>
     <ng-template
       #notFoundPhoto
       ><h3>Создайте боард и загрузите ваши фото</h3>
     </ng-template>
     <div class="del-save">
-      <button class="btn" (click)=onDeletePhoto()>Dismiss Changes</button>
-      <button class="btn" (click)=onSaveBoard()>Save Board</button>
+      <button class="btn btn-sm btn-outline-primary p-r-1" (click)=onDeletePhoto()>Dismiss Changes</button>
+      <button class="btn btn-sm btn-primary" (click)=onSaveBoard()>Save Board</button>
     </div>
 
   </div>

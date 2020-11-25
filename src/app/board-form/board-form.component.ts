@@ -17,6 +17,7 @@ export class BoardFormComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
   addBoard(): void {
     if (this.name) {
       const newBoard = {
@@ -26,4 +27,9 @@ export class BoardFormComponent implements OnInit {
       this.onAddBorder.emit(newBoard);
     }
   }
+
+  public cancel(): void {
+    this.onAddBorder.emit();
+  }
+
 }

@@ -5,6 +5,10 @@
 .create-board {
   display: flex;
   align-items: center;
+  &>button {
+    margin-top: 25px;
+  }
+  // margin-top: 23px;
 }
 .create {
   margin-top: 22px;
@@ -13,17 +17,23 @@
   text-align: center;
 }
 .board {
-  height: 700px;
+  min-height: 759px;
+  height: 100%;
   margin-top: 30px;
   display: flex;
   position: relative;
   width: 100%;
-  border: 1px solid;
-  max-width: 1036px;
   overflow: hidden;
 }
 .del-save {
   position: absolute;
   bottom: 9px;
-  right: 15px;
+  right: 0;
+  &>button:first-child {
+    margin-right: 20px;
+  }
+}
+
+hr {
+  border: 1px solid #adadad;
 }

@@ -7,3 +7,13 @@
 .ng-arrow-wrapper:after {
   border-bottom: none;
 }
+
+.dropdown {
+  width: 100%;
+  min-width: 300px;
+  padding-right: 20px;
+  &>select {
+    width: 100%;
+    height: 30px;
+  }
+}

@@ -1,7 +1,8 @@
-<div class="col-xs-8">
+<div class="create">
     <form action="#" (ngSubmit)="addBoard()">
-      <label>name board</label>
-      <input type="text" name="text" [(ngModel)]="name">
-      <button class="btn" [disabled]="!name">Create board</button>
+      <!-- <label>Name board</label> -->
+      <input type="text" name="text" [(ngModel)]="name" value="name board">
+      <button class="btn btn-sm btn-primary create-btn" [disabled]="!name">Create board</button>
+      <button class="btn btn-sm btn-secondary mr2" (click)=cancel()>Cancel</button>
     </form>
   </div>

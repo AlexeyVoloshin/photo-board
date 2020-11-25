@@ -5,3 +5,19 @@
   width: 300px;
   border: 1px solid;
 }
+
+.row {
+  margin: 0;
+  &>input {
+    width: 100%;
+    height: 30px;
+  }
+  button {
+    margin-bottom: 1px;
+  }
+}
+
+.input {
+  height: 30px;
+  margin-right: 20px;
+}

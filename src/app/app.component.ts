@@ -39,6 +39,10 @@ constructor(
   }
 
   onAddBorder(board: IBoard): void {
+    if (!board) {
+      this.toggle = false;
+      return;
+    }
     this.storeBoard$.dispatch(new BoardCreateAction(board));
     this.toggle = false;
   }
@@ -58,10 +62,10 @@ constructor(
     this.storePhoto$.dispatch(new PhotoDeleteAction({ boardId: this.boardId }));
   }
 
-  onSaveBoard() {
+  onSaveBoard(): void {
     this.storageService.save();
   }
-  createBoard() {
+  createBoard(): void {
     this.toggle = !this.toggle;
   }
 }
