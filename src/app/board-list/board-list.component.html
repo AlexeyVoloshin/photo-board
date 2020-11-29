@@ -1,8 +1,15 @@
 <span>Selectan existing board</span>
-<div class="dropdown">
-  <select [(ngModel)]="selectedBoard" (ngModelChange)=selectChange($event)>
-    <option [ngValue]="boardList[0]">Select</option>
-    <option *ngFor="let board of boardList | async" [ngValue]="board.id">{{board.name}}</option>
+<div class="input-group">
+  <select
+  class="custom-select mr-2"
+  [(ngModel)]="selectedBoard"
+  (ngModelChange)=selectChange($event)
+  >
+    <option disabled [ngValue]="boardList[0]">Select board</option>
+    <option [ngValue]="board.id"  *ngFor="let board of boardList | async">{{board.name}}</option>
   </select>
+  <div class="input-group-append">
+    <button class="btn btn-outline-primary btn-sm btn-block rounded" type="button" (click)=createBoard()>Create a new board</button>
+  </div>
 </div>
 

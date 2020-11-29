@@ -8,21 +8,21 @@ import { BoardCreateAction } from './store/actions/board.actions';
 import { PhotoCreateAction, PhotoDeleteAction } from './store/actions/photo.actions';
 import { BoardState } from './store/reducers/board.reducer';
 import { boardListSelector } from './store/selectors/board.selectors';
-import { photoListSelector, selectPhotoByBoard } from './store/selectors/photo.selector';
+import { selectPhotoByBoard } from './store/selectors/photo.selector';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnChanges, OnInit{
+export class AppComponent implements OnInit{
 
-boardId: number;
-toggle = false;
+public boardId: number;
+public toggle = false;
 
-boardList$: Observable<IBoard[]> = this.storeBoard$.pipe(select(boardListSelector));
+public boardList$: Observable<IBoard[]> = this.storeBoard$.pipe(select(boardListSelector));
 
-photoList$: Observable<IPhoto[]> = this.storePhoto$.pipe(select(selectPhotoByBoard, { boardId: 1 }));
+public photoList$: Observable<IPhoto[]> = this.storePhoto$.pipe(select(selectPhotoByBoard, { boardId: 1 }));
 
 constructor(
   private storeBoard$: Store<BoardState>,
@@ -30,15 +30,11 @@ constructor(
   private storageService: StorageService,
   ) {}
 
-  ngOnChanges(changes: SimpleChanges): void {
-  }
-
   ngOnInit(): void {
-    // this.storageService.init();
     this.storageService.loadFormStorage();
   }
 
-  onAddBorder(board: IBoard): void {
+  public onAddBorder(board: IBoard): void {
     if (!board) {
       this.toggle = false;
       return;
@@ -47,25 +43,24 @@ constructor(
     this.toggle = false;
   }
 
-  onAddPhoto(photo: IPhoto): void {
-
+  public onAddPhoto(photo: IPhoto): void {
     this.storePhoto$.dispatch(new PhotoCreateAction({photo}));
-
   }
 
-  onSelectedBoard(id?: number): void {
+  public onSelectedBoard(id?: number): void {
     this.boardId = id;
     this.photoList$ = this.storePhoto$.pipe(select(selectPhotoByBoard, { boardId: id }));
   }
 
-  onDeletePhoto(): void {
+  public onDeletePhoto(): void {
     this.storePhoto$.dispatch(new PhotoDeleteAction({ boardId: this.boardId }));
   }
 
-  onSaveBoard(): void {
+  public onSaveBoard(): void {
     this.storageService.save();
   }
-  createBoard(): void {
+
+  public eventHandlerCreateBoard(): void {
     this.toggle = !this.toggle;
   }
 }

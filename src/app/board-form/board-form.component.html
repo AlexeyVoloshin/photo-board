@@ -1,8 +1,16 @@
-<div class="create">
-    <form action="#" (ngSubmit)="addBoard()">
-      <!-- <label>Name board</label> -->
-      <input type="text" name="text" [(ngModel)]="name" value="name board">
-      <button class="btn btn-sm btn-primary create-btn" [disabled]="!name">Create board</button>
-      <button class="btn btn-sm btn-secondary mr2" (click)=cancel()>Cancel</button>
-    </form>
+<span>Add board</span>
+<form action="#" (ngSubmit)="addBoard()">
+  <div class="input-group mb-3">
+    <input
+    class="form-control mr-2"
+    type="text"
+    name="text"
+    [(ngModel)]="name"
+    value="name board"
+    >
+  <div class="input-group-prepend">
+    <button class="btn btn-sm btn-primary create-btn rounded mr-2" [disabled]="!name">Create board</button>
+    <button class="btn btn-sm btn-secondary rounded" (click)=cancel()>Cancel</button>
   </div>
+  </div>
+</form>

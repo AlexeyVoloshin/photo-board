@@ -8,7 +8,7 @@ import { IBoard } from '../models/board';
   styleUrls: ['./board-form.component.scss']
 })
 export class BoardFormComponent implements OnInit {
-  name: string;
+  public name: string;
   private id = 1;
 
   @Output() onAddBorder = new EventEmitter<IBoard>()
@@ -18,7 +18,7 @@ export class BoardFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addBoard(): void {
+  public addBoard(): void {
     if (this.name) {
       const newBoard = {
         id: this.id,

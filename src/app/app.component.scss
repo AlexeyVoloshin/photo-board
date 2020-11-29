@@ -1,39 +1,96 @@
-.top-panel{
-  display: flex;
+.space {
   justify-content: space-between;
 }
-.create-board {
-  display: flex;
-  align-items: center;
-  &>button {
-    margin-top: 25px;
-  }
-  // margin-top: 23px;
+
+.img-wrapper {
+  display: inline-flex;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  justify-content: center;
 }
-.create {
-  margin-top: 22px;
-  width: auto;
-  padding: 5px;
-  text-align: center;
-}
-.board {
-  min-height: 759px;
-  height: 100%;
-  margin-top: 30px;
-  display: flex;
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
+
 .del-save {
-  position: absolute;
-  bottom: 9px;
-  right: 0;
-  &>button:first-child {
-    margin-right: 20px;
-  }
+  position: fixed;
+  bottom: 14px;
+  right: 34px;
 }
 
 hr {
   border: 1px solid #adadad;
+}
+
+.flex-end {
+  justify-content: flex-end;
+}
+
+h3 {
+  font-weight: 600;
+}
+
+.container {
+  .board {
+    max-height: 558px;
+    overflow: auto;
+  }
+}
+
+@media (max-width: 766px) {
+  .container {
+    .board {
+      max-height: 495px;
+    }
+  }
+
+  .top-panel {
+    .space {
+      width: 100%;
+    }
+  }
+
+  .top-panel {
+    display: flex;
+    justify-content: center;
+  }
+
+  .row {
+    h3 {
+      font-size: 17px;
+    }
+  }
+
+  .col-4 {
+    flex: 100%;
+    max-width: 100%;
+  }
+
+  .col-5 {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 658px) {
+  .container {
+    .board {
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: 587px) {
+  .container {
+    .board .row{
+      justify-content: center;
+    }
+  }
+
+  .img-wrapper {
+    display: inline;
+  }
+}
+
+@media (max-width: 363px) {
+  h3 {
+    font-size: 22px;
+  }
 }

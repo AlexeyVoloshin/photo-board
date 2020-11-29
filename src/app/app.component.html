@@ -1,48 +1,57 @@
-
 <div class="container">
   <h1>Photo Board</h1>
   <hr align="left">
   <div class="top-panel">
+  <div class="row space">
+    <div class="col-4">
+      <app-image-form
+      (onAddPhoto)=onAddPhoto($event)
+      [boardId]="boardId"
+      >
+      </app-image-form>
+    </div>
 
-
-  <app-image-form
-  (onAddPhoto)=onAddPhoto($event)
-  [boardId]="boardId"
-  >
-  </app-image-form>
-  <div class="create-board">
-  <!-- <span *ngFor="let board of boards"> -->
-    <app-board-list *ngIf="!toggle; else formBoard"
-    (onSelectedBoard)=onSelectedBoard($event)
-    [boardList]="boardList$"
-    ></app-board-list>
-    <ng-template
-    #formBoard
-    >
-    <app-board-form
-    (onAddBorder)="onAddBorder($event)"
-    ></app-board-form>
-    </ng-template>
-    <button class="btn btn-sm btn-outline-primary" (click)=createBoard()>Create a new board</button>
+      <div class="col-5">
+        <app-board-list *ngIf="!toggle; else formBoard"
+        (onEventHandler)=eventHandlerCreateBoard()
+        (onSelectedBoard)=onSelectedBoard($event)
+        [boardList]="boardList$"
+        ></app-board-list>
+        <ng-template
+        #formBoard
+        >
+        <app-board-form
+        (onAddBorder)="onAddBorder($event)"
+        ></app-board-form>
+        </ng-template>
+    </div>
   </div>
-  </div>
-  <!-- </span> -->
-  <div class="board">
-    <div *ngIf="boardId; else notFoundPhoto">
-      <app-photo
-      *ngFor="let photo of photoList$ | async "
-      [photo]="photo"
-    ></app-photo>
+</div>
+  <div class="container board">
+    <div class="row">
+      <div *ngIf="boardId; else notFoundPhoto">
+        <app-photo
+        class="col-lg-3 col-md-4 col-6 img-wrapper"
+        *ngFor="let photo of photoList$ | async "
+        [photo]="photo"
+      ></app-photo>
+      </div>
     </div>
     <ng-template
       #notFoundPhoto
-      ><h3>Создайте боард и загрузите ваши фото</h3>
+      ><h3>Create a board and upload your photos</h3>
     </ng-template>
-    <div class="del-save">
-      <button class="btn btn-sm btn-outline-primary p-r-1" (click)=onDeletePhoto()>Dismiss Changes</button>
-      <button class="btn btn-sm btn-primary" (click)=onSaveBoard()>Save Board</button>
-    </div>
+  </div>
+  <div *ngIf="boardId" class="container">
+    <div class="row ">
+      <div class="col-md-12 col-xl-12">
+        <div class="input-group-prepend del-save">
+          <button class="btn btn-outline-primary mr-2"  type="button" (click)=onDeletePhoto()>Dismiss Changes</button>
+          <button class="btn btn-primary"  type="button" (click)=onSaveBoard()>Save Board</button>
+        </div>
+      </div>
 
+    </div>
   </div>
 </div>
 

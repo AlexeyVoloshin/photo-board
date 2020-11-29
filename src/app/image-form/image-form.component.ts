@@ -8,7 +8,7 @@ import { IPhoto } from '../models/photo';
 })
 export class ImageFormComponent implements OnInit {
 
-  name: string;
+  public name: string;
 
   @Output() onAddPhoto: EventEmitter<IPhoto> = new EventEmitter<IPhoto>();
 
@@ -20,7 +20,7 @@ export class ImageFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addPhoto(): void {
+  public addPhoto(): void {
     const newPhoto: IPhoto = {
       idBoard: this.boardId,
       imgUrl: this.name

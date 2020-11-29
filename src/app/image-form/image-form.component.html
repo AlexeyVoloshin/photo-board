@@ -1,13 +1,15 @@
 <span>Add image to the board</span>
-<div class="row">
+<form action="#"  (ngSubmit)="addPhoto()">
+  <div class="input-group mb-4">
+    <input
+      class="form-control mr-2"
+      type="text"
+      name="name"
+      [(ngModel)]="name"
+      >
+    <div class="input-group-prepend">
+      <button class="btn btn-sm btn-primary rounded" type="submit" [disabled]="!boardId">Add</button>
+    </div>
+  </div>
+</form>
 
-  <form action="#"  (ngSubmit)="addPhoto()">
-        <input
-        class="input"
-        type="text"
-        name="name"
-        [(ngModel)]="name"
-        >
-       <button class="btn btn-sm btn-primary p-a-1" [disabled]="!boardId">Add</button>
-  </form>
-</div>

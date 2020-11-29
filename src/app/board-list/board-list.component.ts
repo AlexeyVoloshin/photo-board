@@ -11,10 +11,11 @@ import { IBoard } from '../models/board';
 export class BoardListComponent implements OnInit {
   @Input() boardList: IBoard[] = [];
 
-  @Output() onSelectedBoard: EventEmitter<number> = new EventEmitter<number>()
+  @Output() onSelectedBoard: EventEmitter<number> = new EventEmitter<number>();
+  @Output() onEventHandler: EventEmitter<any> = new EventEmitter<any>();
 
-  selectedBoard: number;
-  boardForm: FormGroup;
+  public selectedBoard: number;
+  public boardForm: FormGroup;
 
   constructor(
     private fb: FormBuilder,
@@ -25,12 +26,17 @@ export class BoardListComponent implements OnInit {
     this.config.bindValue = 'value';
    }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.boardForm = this.fb.group({
       boardControl: ['test']
     });
   }
-  selectChange(event): void {
-    this.onSelectedBoard.emit(this.selectedBoard)
+
+  public selectChange(event): void {
+    this.onSelectedBoard.emit(this.selectedBoard);
+  }
+
+  public createBoard(): void {
+    this.onEventHandler.emit();
   }
 }
