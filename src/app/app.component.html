@@ -2,57 +2,51 @@
   <h1>Photo Board</h1>
   <hr align="left">
   <div class="top-panel">
-  <div class="row space">
-    <div class="col-4">
-      <app-image-form
-      (onAddPhoto)=onAddPhoto($event)
-      [boardId]="boardId"
-      >
-      </app-image-form>
-    </div>
+	<div class="row space">
+		<div class="col-4">
+			<app-image-form
+				(onAddPhoto)=onAddPhoto($event)
+				[boardId]="boardId">
+			</app-image-form>
+		</div>
 
-      <div class="col-5">
-        <app-board-list *ngIf="!toggle; else formBoard"
-        (onEventHandler)=eventHandlerCreateBoard()
-        (onSelectedBoard)=onSelectedBoard($event)
-        [boardList]="boardList$"
-        ></app-board-list>
-        <ng-template
-        #formBoard
-        >
-        <app-board-form
-        (onAddBorder)="onAddBorder($event)"
-        ></app-board-form>
-        </ng-template>
-    </div>
-  </div>
+			<div class="col-5">
+				<app-board-list *ngIf="!toggle; else formBoard"
+				(onEventHandler)=eventHandlerCreateBoard()
+				(onSelectedBoard)=onSelectedBoard($event)
+				[boardList]="boardList$"
+				></app-board-list>
+				<ng-template
+				#formBoard
+				>
+				<app-board-form
+				(onAddBorder)="onAddBorder($event)"
+				></app-board-form>
+				</ng-template>
+			</div>
+		</div>
+	</div>
+	<div class="cards" *ngIf="boardId; else notFoundPhoto">
+		<app-photo 
+			class="cards__image"
+			*ngFor="let photo of photoList$ | async "
+			[photo]="photo">
+		</app-photo>
+	</div>
+<ng-template
+	#notFoundPhoto>
+	<div class="title-board">Create a board and upload your photos</div>
+</ng-template>
+<div *ngIf="boardId" class="bottom-panel">
+	<div class="row">
+	<div class="col-md-12 col-xl-12">
+		<div class="input-group-prepend del-save">
+			<button class="btn btn-outline-primary mr-2"  type="button" (click)=onDeletePhoto()>Dismiss Changes</button>
+			<button class="btn btn-primary"  type="button" (click)=onSaveBoard()>Save Board</button>
+		</div>
+	</div>
+	</div>
 </div>
-  <div class="container board">
-    <div class="row">
-      <div *ngIf="boardId; else notFoundPhoto">
-        <app-photo
-        class="col-lg-3 col-md-4 col-6 img-wrapper"
-        *ngFor="let photo of photoList$ | async "
-        [photo]="photo"
-      ></app-photo>
-      </div>
-    </div>
-    <ng-template
-      #notFoundPhoto
-      ><h3>Create a board and upload your photos</h3>
-    </ng-template>
-  </div>
-  <div *ngIf="boardId" class="container">
-    <div class="row ">
-      <div class="col-md-12 col-xl-12">
-        <div class="input-group-prepend del-save">
-          <button class="btn btn-outline-primary mr-2"  type="button" (click)=onDeletePhoto()>Dismiss Changes</button>
-          <button class="btn btn-primary"  type="button" (click)=onSaveBoard()>Save Board</button>
-        </div>
-      </div>
-
-    </div>
-  </div>
 </div>
 
 

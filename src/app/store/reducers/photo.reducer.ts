@@ -50,19 +50,3 @@ export const photoReducer = (
     }
 };
 
-
-
-
-//  case boardActionsType.createPhoto:
-//   return {
-//     ...state,
-//     idIncrement: state.idIncrement + 1,
-//     boardList: [
-//       ...state.boardList,
-//       {
-//         id: state.idIncrement,
-//         imgUrl: action.payload.imgUrl,
-//         idBoard: action.payloadAdd.idBoard
-//       }
-//     ]
-//   };

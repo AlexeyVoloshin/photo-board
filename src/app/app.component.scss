@@ -1,3 +1,45 @@
+.container {
+	max-width: 1280px;
+	margin: 0 auto;
+	padding: 0 2rem;
+	margin-top: 20px;
+	@media (max-width: 766px) {
+		max-height: 495px;
+		.top-panel {
+		  .space {
+			 width: 100%;
+		  }
+		}
+	 
+		.top-panel {
+		  display: flex;
+		  justify-content: center;
+		}
+	 
+		.row {
+		  h3 {
+			 font-size: 17px;
+		  }
+		}
+	 
+		.col-4 {
+		  flex: 100%;
+		  max-width: 100%;
+		}
+	 
+		.col-5 {
+		  flex: 100%;
+		  max-width: 100%;
+		}
+	 }
+ }
+ 
+ h1 {
+	font-weight: 600;
+	font-size: 25px;
+ }
+ 
+
 .space {
   justify-content: space-between;
 }
@@ -23,74 +65,45 @@ hr {
   justify-content: flex-end;
 }
 
-h3 {
+.title-board {
   font-weight: 600;
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+  @media (max-width: 766px) {
+	  margin: 20px 0 0;
+  }
+  @media (max-width: 363px) {
+		font-size: 15px;
+		text-align: center;
+	}
 }
 
-.container {
-  .board {
-    max-height: 558px;
-    overflow: auto;
-  }
+
+.cards{
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 auto;
+	max-width: 1111px;
+	@media (max-width: 766px) {
+		margin: 20px auto 0;
+	}
+	&__image{
+		position: relative;
+		margin: 5px;
+		overflow: hidden;
+		flex: 0 0 32.333%;
+		min-height: 240px;
+		@media (max-width: 1080px) {
+			flex: 0 0 48%;
+		}
+		@media (max-width: 701px) {
+			flex: 0 0 100%;
+			min-height: 284px;
+		}
+	}
+	@media (max-width: 701px) {
+		justify-content: center;
+	}
 }
 
-@media (max-width: 766px) {
-  .container {
-    .board {
-      max-height: 495px;
-    }
-  }
-
-  .top-panel {
-    .space {
-      width: 100%;
-    }
-  }
-
-  .top-panel {
-    display: flex;
-    justify-content: center;
-  }
-
-  .row {
-    h3 {
-      font-size: 17px;
-    }
-  }
-
-  .col-4 {
-    flex: 100%;
-    max-width: 100%;
-  }
-
-  .col-5 {
-    flex: 100%;
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 658px) {
-  .container {
-    .board {
-      text-align: center;
-    }
-  }
-}
-
-@media (max-width: 587px) {
-  .container {
-    .board .row{
-      justify-content: center;
-    }
-  }
-
-  .img-wrapper {
-    display: inline;
-  }
-}
-
-@media (max-width: 363px) {
-  h3 {
-    font-size: 22px;
-  }
-}

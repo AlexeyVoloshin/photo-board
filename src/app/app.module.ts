@@ -29,7 +29,6 @@ import { PhotoComponent } from './photo/photo.component';
     AppRoutingModule,
     FormsModule,
     NgSelectModule,
-    // StoreModule.forFeature(BOARD_REDUCER_NODE, boardReducer),
     StoreModule.forRoot(reducers, {
       runtimeChecks: {
         strictStateImmutability: true,

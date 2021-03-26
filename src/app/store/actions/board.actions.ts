@@ -18,4 +18,3 @@ export class BoardCreateAction implements Action {
 
 export type BoardActions = BoardCreateAction | BoardLoadStateAction;
 
-// | IdBoardAddAction;
